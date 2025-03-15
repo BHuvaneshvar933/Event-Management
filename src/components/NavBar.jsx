@@ -7,16 +7,15 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-lg border-b border-neutral-700/80 bg-opacity-90">
+    <nav className="sticky top-0 z-50 backdrop-blur-lg border-b bg-gray-800 border-neutral-700/80 bg-opacity-90">
       <div className="flex justify-between items-center px-6 py-4 md:px-24">
-        <h1 className="text-3xl font-bold mt-2 bg-gradient-to-r from-white via-orange-500 to-red-600 text-transparent bg-clip-text">
-          SK Gym Products
+        <h1 className="text-3xl font-bold mt-2 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition text-transparent bg-clip-text">
+        EventPro
         </h1>
-        {/* Mobile Hamburger */}
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
+            className="text-gray-300 focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg
@@ -44,22 +43,22 @@ const NavBar = () => {
             </svg>
           </button>
         </div>
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-12 text-center">
+        <ul className="hidden text-gray-300 md:flex space-x-12 text-center">
           <li className="py-2">
             <Link to="/">Home</Link>
           </li>
           <li className="py-2">
-            <Link to="/products">Products</Link>
+            <Link to="/events">Events</Link>
           </li>
           {user ? (
             <>
               <li className="py-2">
-                <Link to="/cart">Cart</Link>
+                <Link to="/dashboard">Dashboard</Link>
               </li>
               <li className="py-2">
-                <Link to="/orders">Orders</Link>
+                <Link to="/create-event">Create Event</Link>
               </li>
+             
               <li className="py-2">
                 <Link to="/about">About</Link>
               </li>
@@ -85,16 +84,15 @@ const NavBar = () => {
               <li className="py-2">
                 <Link to="/contact">Contact</Link>
               </li>
-              <li className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800">
+              <li className="py-2 px-3 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500">
                 <Link to="/login">Login/Register</Link>
               </li>
             </>
           )}
         </ul>
       </div>
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden px-6 pb-4">
+        <div className="md:hidden px-6 text-gray-300 pb-4">
           <ul className="flex flex-col space-y-2 text-center">
             <li>
               <Link onClick={() => setIsOpen(false)} to="/">
@@ -102,20 +100,21 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link onClick={() => setIsOpen(false)} to="/products">
-                Products
+              <Link onClick={() => setIsOpen(false)} to="/events/:id">
+                Events
               </Link>
             </li>
             {user ? (
               <>
                 <li>
-                  <Link onClick={() => setIsOpen(false)} to="/cart">
-                    Cart
+                  <Link onClick={() => setIsOpen(false)} to="/dashboard">
+                    Dashboard
                   </Link>
                 </li>
+               
                 <li>
-                  <Link onClick={() => setIsOpen(false)} to="/orders">
-                    Orders
+                  <Link onClick={() => setIsOpen(false)} to="/create-event">
+                   Create event
                   </Link>
                 </li>
                 <li>
@@ -155,7 +154,7 @@ const NavBar = () => {
                     Contact
                   </Link>
                 </li>
-                <li className="py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-orange-800">
+                <li className="py-2 px-3 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500">
                   <Link onClick={() => setIsOpen(false)} to="/login">
                     Login/Register
                   </Link>

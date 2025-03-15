@@ -1,29 +1,29 @@
 import React from 'react';
-import home from "../assets/home.jpg"; 
+import home from "../assets/background.jpg";
 
 const Home = () => (
   <div
-    className="relative bg-cover bg-center h-dvh"
+    className="relative bg-cover bg-center h-dvh bg-gray-900"
     style={{ backgroundImage: `url(${home})` }} 
   >
-    
-    <div className="absolute inset-0 bg-gradient-to-r from-black to-neutral-950  opacity-75"></div>
+   
+    <div className="absolute inset-0 bg-gradient-to-r from-black to-neutral-900  opacity-65"></div>
 
     <div className="relative container mx-auto p-8 text-center text-white">
-      <h1 className="text-7xl font-bold mt-52">
+      <h1 className="text-7xl  font-bold mt-36">
         Welcome to{" "}
-        <span className="bg-gradient-to-r from-orange-400 to-red-700 text-transparent bg-clip-text">
-        SK Gym Products
+        <span className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition text-transparent bg-clip-text">
+          EventPro
         </span>
       </h1>
-      <p className="text-lg mb-6 text-neutral-300 mt-2">
-        Find the best gym equipment and supplements at unbeatable prices.
+      <p className="text-lg mb-6 text-gray-300 mt-2">
+        Discover, manage, and enjoy events like never before. Your ultimate event management solution is here!
       </p>
       <a
-        href="/products"
-        className="py-2 px-4 rounded-md bg-gradient-to-r from-orange-400 to-red-700 hover:from-orange-400 hover:to-red-600 transition"
+        href="/events"
+        className="py-2 px-4 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition"
       >
-        Shop Now
+        Discover Events
       </a>
     </div>
   </div>

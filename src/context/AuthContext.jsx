@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import {jwtDecode} from 'jwt-decode';
 
@@ -9,18 +10,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log('Token from localStorage:', token);
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        console.log('Decoded token:', decoded);
-        if (decoded && Object.keys(decoded).length > 0) {
-          setUser(decoded);
-        } else {
-          setUser(null);
-        }
+        setUser(decoded);
       } catch (error) {
-        console.error('Invalid token. Removing token from localStorage.', error);
+        console.error('Invalid token. Removing token.', error);
         localStorage.removeItem('token');
         setUser(null);
       }
@@ -28,19 +23,15 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  const login = (token) => {
+  const login = (token, userData) => {
     localStorage.setItem('token', token);
-    try {
-      const decoded = jwtDecode(token);
-      setUser(decoded);
-    } catch (error) {
-      console.error('Invalid token on login', error);
-      setUser(null);
-    }
+    localStorage.setItem('user', JSON.stringify(userData));
+    setUser(userData);
   };
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setUser(null);
   };
 
