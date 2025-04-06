@@ -1,5 +1,6 @@
 import React from 'react';
 import home from "../assets/background.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => (
   <div
@@ -19,7 +20,7 @@ const Home = () => (
       <p className="text-lg mb-6 text-gray-300 mt-2">
         Discover, manage, and enjoy events like never before. Your ultimate event management solution is here!
       </p>
-      <link to"/events">
+      <Link to="/events">
       <a
         href="/events"
         className="py-2 px-4 rounded-md bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 transition"
