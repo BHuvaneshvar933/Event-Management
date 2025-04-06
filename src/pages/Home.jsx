@@ -30,7 +30,7 @@ const Home = () => (
       </Link>
       </div>
     </div>
-  </div>
+ 
 );
 
 export default Home;
