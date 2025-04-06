@@ -31,7 +31,7 @@ function ManualTicket() {
   useEffect(() => {
     const fetchTicket = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/registrations/${registrationId}`);
+        const res = await fetch(`https://event-backend-utqn.onrender.com/api/registrations/${registrationId}`);
         if (!res.ok) {
           const errData = await res.json();
           throw new Error(errData.error || 'Ticket not found');
