@@ -9,7 +9,7 @@ function AllEvents() {
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/events');
+        const res = await fetch('https://event-backend-utqn.onrender.com/api/events');
         if (!res.ok) {
           const errData = await res.json();
           throw new Error(errData.error || 'Error fetching events');
