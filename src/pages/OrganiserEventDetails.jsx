@@ -15,7 +15,7 @@ function OrganiserEventDetails() {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/events/${id}`);
+        const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}`);
         if (!res.ok) {
           const errData = await res.json();
           throw new Error(errData.error || 'Event not found');
@@ -48,7 +48,7 @@ function OrganiserEventDetails() {
   const updateEvent = async () => {
     try {
       const updatedData = { ...formData, organizer: event.organizer };
-      const res = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedData)
@@ -69,7 +69,7 @@ function OrganiserEventDetails() {
 
   const closeEvent = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${id}/close`, {
+      const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}/close`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ organizer: event.organizer })
@@ -89,7 +89,7 @@ function OrganiserEventDetails() {
 
   const deleteEvent = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ organizer: event.organizer })
@@ -109,7 +109,7 @@ function OrganiserEventDetails() {
   const removeAttendee = async (attendee) => {
     try {
       const updatedAttendees = event.attendees.filter(a => a !== attendee);
-      const res = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ organizer: event.organizer, attendees: updatedAttendees })
@@ -121,7 +121,7 @@ function OrganiserEventDetails() {
       const updatedEvent = await res.json();
       setEvent(updatedEvent);
       setAttendees(updatedEvent.attendees);
-      const delRes = await fetch(`http://localhost:5000/api/registrations?eventId=${id}&user=${attendee}`, {
+      const delRes = await fetch(`https://event-backend-utqn.onrender.com/api/registrations?eventId=${id}&user=${attendee}`, {
         method: 'DELETE'
       });
       if (!delRes.ok) {
