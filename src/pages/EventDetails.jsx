@@ -17,7 +17,7 @@ function EventDetails() {
   useEffect(() => {
     const fetchEvent = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/events/${id}`);
+        const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}`);
         if (!res.ok) {
           const errData = await res.json();
           throw new Error(errData.error || 'Event not found');
@@ -50,7 +50,7 @@ function EventDetails() {
       return;
     }
     try {
-      const res = await fetch(`http://localhost:5000/api/events/${id}/register`, {
+      const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/${id}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
