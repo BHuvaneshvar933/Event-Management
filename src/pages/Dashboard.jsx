@@ -15,7 +15,7 @@ function Dashboard() {
     if (!username) return;
     const fetchOrganized = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/events/mine?username=${username}`);
+        const res = await fetch(`https://event-backend-utqn.onrender.com/api/events/mine?username=${username}`);
         if (!res.ok) throw new Error("Error fetching organized events");
         const data = await res.json();
         setOrganizedEvents(data);
@@ -27,7 +27,7 @@ function Dashboard() {
 
     const fetchRegistrations = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/registrations?username=${username}`);
+        const res = await fetch(`https://event-backend-utqn.onrender.com/api/registrations?username=${username}`);
         if (!res.ok) throw new Error("Error fetching registrations");
         const data = await res.json();
         setRegistrations(data);
