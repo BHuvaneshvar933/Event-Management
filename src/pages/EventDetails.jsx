@@ -32,12 +32,12 @@ function EventDetails() {
     fetchEvent();
   }, [id]);
 
-  const now = new Date();
-  const registrationsOpen =
-    event &&
-    event.status === 'open' &&
-    now >= new Date(event.registrationStartDate) &&
-    now <= new Date(event.registrationEndDate);
+const now = new Date().getTime(); // Changed here
+const registrationsOpen =
+  event &&
+  event.status === 'open' &&
+  now >= new Date(event.registrationStartDate).getTime() && // Changed here
+  now <= new Date(event.registrationEndDate).getTime();     // Changed here
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
