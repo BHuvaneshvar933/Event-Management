@@ -102,7 +102,7 @@ function AllEvents() {
             <p className="text-gray-600 mt-2">Try searching for something else or browse all categories.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {filteredEvents.map((event, i) => (
               <motion.div
                 key={event._id}
@@ -112,7 +112,7 @@ function AllEvents() {
                 className="group relative"
               >
                 <Link to={`/events/${event._id}`} className="block h-full">
-                  <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-6 bg-[#121212]">
+                  <div className="relative aspect-[3/4] rounded-3xl overflow-hidden mb-4 bg-[#121212]">
                     <img 
                       src={event.image || `https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000`} 
                       alt={event.title}
@@ -131,7 +131,7 @@ function AllEvents() {
                     </div>
 
                     {/* Quick Info Overlay */}
-                    <div className="absolute bottom-8 left-8 right-8">
+                    <div className="absolute bottom-6 left-6 right-6">
                       <div className="flex justify-between items-end">
                         <div>
                           <div className="flex items-center space-x-2 text-[#ff385c] mb-2">
@@ -140,12 +140,12 @@ function AllEvents() {
                               {event.date ? new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'TBA'}
                             </span>
                           </div>
-                          <h3 className="text-3xl font-black text-white uppercase italic leading-none mb-1 group-hover:text-gradient transition-all duration-300">
+                          <h3 className="text-xl font-black text-white uppercase italic leading-tight mb-1 group-hover:text-gradient transition-all duration-300">
                             {event.title}
                           </h3>
                         </div>
-                        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black -mb-2 scale-0 group-hover:scale-100 transition-transform duration-500">
-                          <ArrowUpRight size={24} />
+                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black -mb-1 scale-0 group-hover:scale-100 transition-transform duration-500">
+                          <ArrowUpRight size={20} />
                         </div>
                       </div>
                     </div>
