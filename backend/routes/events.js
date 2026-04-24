@@ -24,7 +24,8 @@ router.post('/', async (req, res) => {
       registrationStartDate,
       registrationEndDate,
       status: 'open',
-      attendees: []
+      attendees: [],
+      image: req.body.image || ''
     });
     await newEvent.save();
     res.status(201).json(newEvent);
@@ -108,13 +109,18 @@ router.put('/:id', async (req, res) => {
     if (!organizer || organizer.trim().toLowerCase() !== event.organizer) {
       return res.status(403).json({ error: 'Not authorized to update this event' });
     }
-    const allowedUpdates = ['title', 'description', 'date', 'location', 'category', 'organizerContact', 'registrationStartDate', 'registrationEndDate', 'attendees'];
+    const allowedUpdates = ['title', 'description', 'date', 'location', 'category', 'organizerContact', 'registrationStartDate', 'registrationEndDate', 'attendees', 'image'];
+    console.log('Fields present in update request:', Object.keys(req.body));
+    if (req.body.image) {
+      console.log('Image data received. Length:', req.body.image.length);
+    }
     allowedUpdates.forEach(field => {
       if (req.body[field] !== undefined) {
         event[field] = req.body[field];
       }
     });
     await event.save();
+    console.log('Event updated successfully in DB');
     res.json(event);
   } catch (error) {
     console.error('Error updating event:', error);

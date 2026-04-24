@@ -12,7 +12,8 @@ const eventSchema = new Schema({
   registrationStartDate: { type: Date, required: true },
   registrationEndDate: { type: Date, required: true },
   status: { type: String, default: 'open' }, 
-  attendees: [String] 
+  attendees: [String],
+  image: { type: String, default: '' }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Event', eventSchema);
