@@ -113,7 +113,7 @@ function Login() {
 
           <div className="mt-10 pt-8 border-t border-white/10 text-center">
             <p className="text-gray-500 text-sm font-bold">
-              New to the District?{' '}
+              New to Events?{' '}
               <Link to="/register" className="text-white hover:text-[#ff385c] transition-colors underline underline-offset-4">
                 Create an Account
               </Link>

@@ -39,7 +39,7 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-6">
         <div className={`glass rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-500 ${
-          scrolled ? "shadow-2xl border-white/20" : "border-white/10"
+          scrolled ? "shadow-2xl border-white/30 bg-black/60 backdrop-blur-3xl" : "border-white/20 bg-black/20 backdrop-blur-xl"
         }`}>
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-tr from-[#ff385c] to-[#ff8a00] rounded-xl flex items-center justify-center shadow-lg shadow-brand-primary/20">
@@ -56,8 +56,8 @@ const NavBar = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`relative text-sm font-medium transition-colors hover:text-white ${
-                    location.pathname === link.path ? "text-white" : "text-gray-400"
+                  className={`relative text-sm font-bold uppercase tracking-widest transition-all hover:text-white ${
+                    location.pathname === link.path ? "text-white" : "text-gray-300"
                   }`}
                 >
                   {link.name}

@@ -18,34 +18,59 @@ import AllEvents from './pages/AllEvents';
 import EventRegistrations from './pages/EventRegistrations';
 import Ticket from './pages/Ticket';
 import OrganiserEventDetails from './pages/OrganiserEventDetails';
+import NotFound from './pages/NotFound';
+
 function App() {
   return (
- 
     <AuthProvider>
-     
-         
-            <NavBar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              
-              <Route path="/account" element={<Account />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/create-event" element={<CreateEvent />} />
+      <NavBar />
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Home />} />
         <Route path="/events" element={<AllEvents />} />
         <Route path="/events/:id" element={<EventDetails />} />
-              <Route path='/about' element={<About/>}/>
-              <Route path='/contact' element={<Contact/>}/>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/events/:id/registrations" element={<EventRegistrations />} />
-              <Route path="/ticket/:registrationId" element={<Ticket />} />
-              <Route path="/organiser/:id" element={<OrganiserEventDetails />} />
-            </Routes>
-            <Footer/>
-          
-        
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Protected Routes */}
+        <Route path="/account" element={
+          <ProtectedRoute>
+            <Account />
+          </ProtectedRoute>
+        } />
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/create-event" element={
+          <ProtectedRoute>
+            <CreateEvent />
+          </ProtectedRoute>
+        } />
+        <Route path="/organiser/:id" element={
+          <ProtectedRoute>
+            <OrganiserEventDetails />
+          </ProtectedRoute>
+        } />
+        <Route path="/events/:id/registrations" element={
+          <ProtectedRoute>
+            <EventRegistrations />
+          </ProtectedRoute>
+        } />
+        <Route path="/ticket/:registrationId" element={
+          <ProtectedRoute>
+            <Ticket />
+          </ProtectedRoute>
+        } />
+
+        {/* 404 Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </AuthProvider>
-   
   );
 }
 

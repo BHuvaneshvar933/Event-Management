@@ -51,8 +51,8 @@ function Register() {
           <div className="inline-flex items-center justify-center p-3 bg-white/5 rounded-2xl border border-white/10 mb-6">
             <UserPlus className="text-[#ff385c]" size={28} />
           </div>
-          <h1 className="text-5xl font-black uppercase italic tracking-tighter mb-2">Join the District</h1>
-          <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Create your digital profile</p>
+          <h1 className="text-5xl font-black uppercase italic tracking-tighter mb-2">Join the Movement</h1>
+          <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Create your digital identity</p>
         </div>
 
         <div className="glass rounded-[3rem] p-10 border-white/10 shadow-2xl">
@@ -74,7 +74,7 @@ function Register() {
                 <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 group-focus-within:text-[#ff385c] transition-colors" size={18} />
                 <input
                   type="text"
-                  placeholder="district_pioneer"
+                  placeholder="event_explorer"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
@@ -89,7 +89,7 @@ function Register() {
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-600 group-focus-within:text-[#ff385c] transition-colors" size={18} />
                 <input
                   type="email"
-                  placeholder="john@district.com"
+                  placeholder="john@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

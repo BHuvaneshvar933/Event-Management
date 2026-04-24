@@ -31,7 +31,7 @@ const Account = () => {
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-6">
         <div className="text-center">
           <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-6">Access Denied</h2>
-          <Link to="/login" className="btn-primary">Login to District</Link>
+          <Link to="/login" className="btn-primary">Login to Events</Link>
         </div>
       </div>
     );
@@ -116,7 +116,7 @@ const Account = () => {
                       <Shield className="text-[#ff385c]" size={20} />
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-gray-500">Member ID</div>
-                        <div className="text-sm font-bold">{user.id || 'DISTRICT-772'}</div>
+                        <div className="text-sm font-bold">{user.id || 'EVNT-933'}</div>
                       </div>
                     </div>
                   </div>
@@ -140,7 +140,7 @@ const Account = () => {
 
             <div className="p-8 glass rounded-[3rem] border-white/10 bg-gradient-to-br from-[#ff385c]/5 to-transparent flex items-center justify-between">
               <div>
-                <h4 className="font-bold uppercase tracking-tight italic mb-1">District Pro Status</h4>
+                <h4 className="font-bold uppercase tracking-tight italic mb-1">Events Pro Status</h4>
                 <p className="text-[10px] text-gray-500 uppercase tracking-widest font-black">Upgrade for zero booking fees</p>
               </div>
               <button className="px-6 py-2 bg-white text-black font-black uppercase text-[10px] tracking-widest rounded-full hover:scale-105 transition-transform">

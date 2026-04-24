@@ -184,12 +184,12 @@ function Dashboard() {
                         </span>
                       </div>
                       <h3 className="text-2xl font-black uppercase italic tracking-tighter mb-4 group-hover:text-gradient transition-all">
-                        {reg.event.title}
+                        {reg.event?.title || "Unknown Event"}
                       </h3>
                       <div className="space-y-2 text-sm font-bold text-gray-500 uppercase tracking-widest">
                         <div className="flex items-center">
                           <Calendar size={14} className="mr-2 text-[#ff385c]" />
-                          {new Date(reg.event.date).toLocaleDateString()}
+                          {reg.event?.date ? new Date(reg.event.date).toLocaleDateString() : "TBA"}
                         </div>
                       </div>
                       <div className="mt-8 flex items-center text-[#ff385c] font-black uppercase italic tracking-tighter text-sm group-hover:translate-x-2 transition-transform">

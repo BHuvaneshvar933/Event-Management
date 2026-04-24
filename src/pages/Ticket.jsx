@@ -89,11 +89,11 @@ function ManualTicket() {
     // Event Info
     ctx.fillStyle = '#FFFFFF';
     ctx.font = 'italic bold 64px sans-serif';
-    ctx.fillText(event.title.toUpperCase(), 60, 200);
+    ctx.fillText((event?.title || "UNKNOWN EVENT").toUpperCase(), 60, 200);
 
     ctx.font = 'bold 24px sans-serif';
     ctx.fillStyle = '#666666';
-    ctx.fillText(event.location.toUpperCase(), 60, 240);
+    ctx.fillText((event?.location || "UNKNOWN LOCATION").toUpperCase(), 60, 240);
 
     // Details Grid
     ctx.font = 'bold 12px sans-serif';
