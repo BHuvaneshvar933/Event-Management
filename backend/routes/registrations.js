@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
       return res.status(400).json({ error: 'Username is required' });
     }
     const registrations = await Registration.find({ user: username.trim().toLowerCase() });
-    const populatedRegistrations = await Promise.all(
+    const populatedRegistrations = (await Promise.all(
       registrations.map(async (reg) => {
         const event = await Event.findById(reg.event);
         return { registration: reg, event };
       })
-    );
+    )).filter(item => item.event !== null);
     res.json(populatedRegistrations);
   } catch (error) {
     console.error('Error fetching registrations:', error);
